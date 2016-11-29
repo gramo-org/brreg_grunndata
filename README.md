@@ -26,7 +26,7 @@ header.sub_statuses   # An array of hashes, contains code (int) and message.
 # message() contains the message. It has different data
 # corresponding to the operation you called.
 #
-# Calloing message may raise an error, for instance if no
+# Calling message may raise an error, for instance if no
 # message is found in the response. You should inspect the
 # header before asking for a message.
 message = response.message # Returns a hash
