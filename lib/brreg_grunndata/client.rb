@@ -1,5 +1,12 @@
 module BrregGrunndata
   class Client
+    def self.build(username: nil, password: nil)
+      new configuration: Configuration.new(
+        username: username || ENV['BRREG_USERNAME'],
+        password: password || ENV['BRREG_PASSWORD']
+      )
+    end
+
     def initialize(configuration:, service: nil)
       @configuration = configuration
       @service = service || build_savon_service
