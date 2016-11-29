@@ -3,11 +3,11 @@ require 'spec_helper'
 module BrregGrunndata
   describe Configuration do
     subject do
-      described_class.new username: 'user', password: 'password'
+      described_class.new userid: 'user', password: 'password'
     end
 
-    it 'contains username' do
-      expect(subject.username).to eq 'user'
+    it 'contains userid' do
+      expect(subject.userid).to eq 'user'
     end
 
     it 'contains password' do

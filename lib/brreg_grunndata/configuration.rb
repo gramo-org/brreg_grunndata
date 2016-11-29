@@ -3,10 +3,10 @@ module BrregGrunndata
   class Configuration
     WSDL = 'https://ws.brreg.no/grunndata/ErFr?WSDL'.freeze
 
-    attr_reader :username, :password, :wsdl
+    attr_reader :userid, :password, :wsdl
 
-    def initialize(username:, password:, wsdl: WSDL)
-      @username = username
+    def initialize(userid:, password:, wsdl: WSDL)
+      @userid = userid
       @password = password
       @wsdl = wsdl
     end

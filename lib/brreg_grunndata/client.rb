@@ -1,8 +1,8 @@
 module BrregGrunndata
   class Client
-    def self.build(username: nil, password: nil)
+    def self.build(userid: nil, password: nil)
       new configuration: Configuration.new(
-        username: username || ENV['BRREG_USERNAME'],
+        userid: userid || ENV['BRREG_USERNAME'],
         password: password || ENV['BRREG_PASSWORD']
       )
     end
@@ -12,8 +12,8 @@ module BrregGrunndata
       @service = service || build_savon_service
     end
 
-    def hent_basisdata(orgnr:)
-      call :hent_basisdata, orgnr: orgnr
+    def hent_basisdata_mini(orgnr:)
+      call :hent_basisdata_mini, orgnr: orgnr
     end
 
     private
@@ -21,7 +21,7 @@ module BrregGrunndata
     attr_reader :configuration, :service
 
     def call(action, message)
-      service.call action, message.merge(credentials)
+      service.call action, message: message.merge(credentials)
     end
 
     def build_savon_service
@@ -30,7 +30,7 @@ module BrregGrunndata
 
     def credentials
       {
-        username: configuration.username,
+        userid: configuration.userid,
         password: configuration.password
       }
     end

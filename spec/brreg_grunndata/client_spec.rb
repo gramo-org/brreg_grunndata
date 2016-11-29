@@ -3,7 +3,7 @@ require 'spec_helper'
 module BrregGrunndata
   describe Client do
     describe 'unit tests' do
-      let(:credentials) { { username: 'test', password: 'secret' } }
+      let(:credentials) { { userid: 'test', password: 'secret' } }
       let(:config) { Configuration.new credentials }
       let(:service) { double 'savon' }
 
@@ -11,12 +11,12 @@ module BrregGrunndata
         described_class.new configuration: config, service: service
       end
 
-      describe 'hent_basisdata' do
-        it 'calls service with hent_basisdata with expected message' do
+      describe 'hent_basisdata_mini' do
+        it 'calls service with hent_basisdata_mini with expected message' do
           expect(service).to receive(:call)
-            .with(:hent_basisdata, credentials.merge(orgnr: '123'))
+            .with(:hent_basisdata_mini, message: credentials.merge(orgnr: '123'))
 
-          subject.hent_basisdata orgnr: '123'
+          subject.hent_basisdata_mini orgnr: '123'
         end
       end
     end
@@ -27,7 +27,7 @@ module BrregGrunndata
         it 'fails when call was unauthenticated, status -1, substatus 101'
       end
 
-      describe 'hent_basisdata' do
+      describe 'hent_basisdata_mini' do
         include_examples 'common client failures'
       end
     end
