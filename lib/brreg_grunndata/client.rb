@@ -14,22 +14,6 @@ module BrregGrunndata
   #   - Handle common errors
   #   - Has a clear interface of the soap operations we support.
   class Client
-    # Build a client with given user id and password, or read credentials from ENV.
-    # Mostly used for development for easy access to a usable client.
-    def self.build(userid: nil, password: nil, debug: false)
-      config = {
-        userid: userid || ENV['BRREG_USERNAME'],
-        password: password || ENV['BRREG_PASSWORD']
-      }
-
-      if debug
-        config[:logger] = Logger.new(STDOUT)
-        config[:log_level] = :debug
-      end
-
-      new configuration: Configuration.new(config)
-    end
-
     def initialize(configuration:, service: nil)
       @configuration = configuration
       @service = service || build_savon_service
