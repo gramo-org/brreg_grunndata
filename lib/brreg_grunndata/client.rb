@@ -1,3 +1,6 @@
+require 'savon'
+require_relative 'response'
+
 module BrregGrunndata
   # Brreg client to access brreg's data
   #
@@ -24,7 +27,7 @@ module BrregGrunndata
     end
 
     def hent_basisdata_mini(orgnr:)
-      call :hent_basisdata_mini, orgnr: orgnr
+      Response.new call(:hent_basisdata_mini, orgnr: orgnr)
     end
 
     private
