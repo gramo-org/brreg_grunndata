@@ -40,13 +40,13 @@ module BrregGrunndata
             .returns(read_fixture('fail_authorization'))
 
           expect { subject.public_send(operation, message) }
-            .to raise_error described_class::UnauthorizedError
+            .to raise_error ResponseValidator::UnauthorizedError
         end
       end
 
       describe 'hent_basisdata_mini' do
         let(:operation) { 'hent_basisdata_mini' }
-        let(:arguments) { { orgnr: '992090936' } }
+        let(:message) { { orgnr: '992090936' } }
 
         context 'success' do
           before do

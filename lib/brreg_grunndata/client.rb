@@ -1,5 +1,7 @@
 require 'savon'
+
 require_relative 'response'
+require_relative 'response_validator'
 
 module BrregGrunndata
   # Brreg client to access brreg's data
@@ -12,25 +14,6 @@ module BrregGrunndata
   #   - Handle common errors
   #   - Has a clear interface of the soap operations we support.
   class Client
-    class MainStatusError < Error
-      attr_reader :error_status
-
-      def initialize(error_status)
-        @error_status = error_status
-        super "Error status was: #{error_status}"
-      end
-    end
-
-    class UnauthorizedError < MainStatusError; end
-    class UnauthenticatedError < MainStatusError; end
-    class UnexpectedError < MainStatusError; end
-
-    RESPONSE_SUB_STATUS_CODE_TO_ERROR = {
-      -100  => UnauthorizedError,
-      -101  => UnauthenticatedError,
-      -1000 => UnexpectedError
-    }.freeze
-
     # Build a client with given user id and password, or read credentials from ENV.
     # Mostly used for development for easy access to a usable client.
     def self.build(userid: nil, password: nil, debug: false)
@@ -123,24 +106,9 @@ module BrregGrunndata
     def call(operation, message)
       savon_response = service.call operation, message: message.merge(credentials)
 
-      response = Response.new savon_response
-      raise_error_brreg_response_header_error! response.header
-
-      response
-    end
-
-    def raise_error_brreg_response_header_error!(header)
-      return if header.success?
-
-      if header.sub_statuses.length != 1
-        raise Error, "Expected only 1 sub status. Got: #{header.sub_statuses}"
-      end
-
-      error_status = header.sub_statuses[0]
-      code = error_status[:code]
-      error_class = RESPONSE_SUB_STATUS_CODE_TO_ERROR.fetch(code) { UnexpectedError }
-
-      raise error_class, error_status
+      ResponseValidator.new(
+        Response.new(savon_response)
+      ).raise_error_or_return_response!
     end
 
     def build_savon_service
