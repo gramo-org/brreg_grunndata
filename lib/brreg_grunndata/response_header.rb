@@ -26,7 +26,9 @@ module BrregGrunndata
     end
 
     def sub_statuses
-      @sub_statuses ||= @nori_response_header[:under_status][:under_status_melding].map do |status|
+      statuses = Array(@nori_response_header[:under_status][:under_status_melding])
+
+      @sub_statuses ||= statuses.map do |status|
         {
           code: cast_to_int(status.attributes['kode']),
           message: status.to_s
