@@ -65,15 +65,7 @@ module BrregGrunndata
     def message
       raise ResponseFailureError unless success?
 
-      @message ||= begin
-        message = response_grunndata[:melding]
-
-        if message.nil?
-          raise MessageEmptyError
-        end
-
-        message
-      end
+      @message ||= response_grunndata[:melding] || raise(MessageEmptyError)
     end
 
     private
