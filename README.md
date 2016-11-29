@@ -21,7 +21,7 @@ response = client.hent_basisdata_mini orgnr: '123456789'
 # header() returns brreg's "responseHeader"
 header = response.header
 header.main_status    # An integer
-header.sub_statuses   # An array of hashes, contains code and message.
+header.sub_statuses   # An array of hashes, contains code (int) and message.
 
 # message() contains the message. It has different data
 # corresponding to the operation you called.
