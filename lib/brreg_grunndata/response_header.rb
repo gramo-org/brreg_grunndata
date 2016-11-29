@@ -34,6 +34,13 @@ module BrregGrunndata
       end
     end
 
+    # rubocop:disable Style/LineEndConcatenation
+    def inspect
+      "#<BrregGrunndata::ResponseHeader: main_status: #{main_status} " +
+        "sub_statuses: #{sub_statuses}>"
+    end
+    # rubocop:enable Style/LineEndConcatenation
+
     private
 
     def cast_to_int(v)
