@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'savon/mock/spec_helper'
 
 module BrregGrunndata
   describe Client do
@@ -18,17 +19,6 @@ module BrregGrunndata
 
           subject.hent_basisdata_mini orgnr: '123'
         end
-      end
-    end
-
-    describe 'integration tests' do
-      shared_examples 'common client failures' do
-        it 'fails when status is -1, with no substatus'
-        it 'fails when call was unauthenticated, status -1, substatus 101'
-      end
-
-      describe 'hent_basisdata_mini' do
-        include_examples 'common client failures'
       end
     end
   end
