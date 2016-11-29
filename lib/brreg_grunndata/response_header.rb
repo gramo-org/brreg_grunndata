@@ -22,13 +22,13 @@ module BrregGrunndata
     end
 
     def main_status
-      @main_status ||= int(@nori_response_header[:hoved_status])
+      @main_status ||= cast_to_int(@nori_response_header[:hoved_status])
     end
 
     def sub_statuses
       @sub_statuses ||= @nori_response_header[:under_status][:under_status_melding].map do |status|
         {
-          code: int(status.attributes['kode']),
+          code: cast_to_int(status.attributes['kode']),
           message: status.to_s
         }
       end
@@ -36,8 +36,7 @@ module BrregGrunndata
 
     private
 
-    # Cast value to int
-    def int(v)
+    def cast_to_int(v)
       Integer v, 10
     end
   end
