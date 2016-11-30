@@ -1,41 +1,37 @@
-# BrregGrunndata
+# BRREG / Enhetsregisteret Grunndata
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/brreg_grunndata`. To experiment with that code, run `bin/console` for an interactive prompt.
+Ruby wrapper for brreg / enhetsregisteret's [soap web service](https://www.brreg.no/produkter-og-tjenester/bestille/tilgang-til-enhetsregisteret-via-web-services/).
 
-TODO: Delete this and the text above, and describe your gem
+[![Build Status](https://snap-ci.com/gramo-org/brreg_grunndata/branch/master/build_image)](https://snap-ci.com/gramo-org/brreg_grunndata/branch/master)
 
-## Installation
-
-Add this line to your application's Gemfile:
+# Usage
 
 ```ruby
-gem 'brreg_grunndata'
+# Configure and create a client
+config = BrregGrunndata::Configuration.new userid: 'x', password: 'y'
+client = BrregGrunndata::Client.new configuration: config
+
+# Make a request and get a response
+#
+# Calling an operation may raise an error, for instance if you
+# are no authenticated.
+response = client.hent_basisdata_mini orgnr: '123456789'
+
+# The response has two main methods
+# header() returns brreg's "responseHeader"
+header = response.header
+header.main_status    # An integer
+header.sub_statuses   # An array of hashes, contains code (int) and message.
+
+# message() contains the message. It has different data
+# corresponding to the operation you called.
+#
+# Calling message may raise an error, for instance if no
+# message is found in the response. You should inspect the
+# header before asking for a message.
+message = response.message # Returns a hash
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install brreg_grunndata
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/brreg_grunndata. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
+# Web service documentation
+For a better understanding of what to expect of `response.header`
+and `response.message` please take a look at [this page from brreg](https://www.brreg.no/produkter-og-tjenester/bestille/tilgang-til-enhetsregisteret-via-web-services/teknisk-beskrivelse-web-services/grunndataws/).

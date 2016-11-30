@@ -1,14 +1,36 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "brreg_grunndata"
+require 'bundler/setup'
+require 'brreg_grunndata'
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
 
 # (If you use this, don't forget to add pry to your Gemfile!)
-# require "pry"
-# Pry.start
+require 'pry'
 
-require "irb"
-IRB.start
+#
+#  Easy access to a brreg client from within the console
+#
+# If you have  credentials set in ENV all you should need to do
+# in the console is:
+#
+# client.hent_basisdata_mini orgnr: 'xyz' OR
+# c.hent_basisdata_mini orgnr: 'xyz'
+#
+def client(debug: false, userid: nil, password: nil)
+  config = {
+    userid: userid || ENV['BRREG_USERNAME'],
+    password: password || ENV['BRREG_PASSWORD']
+  }
+
+  if debug
+    config[:logger] = Logger.new(STDOUT)
+    config[:log_level] = :debug
+  end
+
+  BrregGrunndata::Client.new configuration: BrregGrunndata::Configuration.new(config)
+end
+alias c client
+
+Pry.start
