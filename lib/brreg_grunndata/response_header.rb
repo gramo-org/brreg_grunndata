@@ -26,6 +26,8 @@ module BrregGrunndata
     end
 
     def sub_statuses
+      return [] unless @nori_response_header.key? :under_status
+
       statuses = Array(@nori_response_header[:under_status][:under_status_melding])
 
       @sub_statuses ||= statuses.map do |status|

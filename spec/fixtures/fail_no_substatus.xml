@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <hentBasisdataResponse xmlns="http://no/brreg/saksys/grunndata/ws">
+      <return>&lt;?xml version="1.0"?&gt;
+        &lt;grunndata xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;http://ftp2.brreg.no/xml/skjema/grunndata/2007/01/16/hentBasisdata.xsd&quot;&gt;&lt;responseHeader prossessDato=&quot;2016-11-29&quot; tjeneste=&quot;hentBasisdata&quot;&gt;&lt;orgnr&gt;992090936&lt;/orgnr&gt;&lt;hovedStatus&gt;-1&lt;/hovedStatus&gt;&lt;/responseHeader&gt;&lt;/grunndata&gt;&lt;/return&gt;
+      </return>
+    </hentBasisdataResponse>
+  </S:Body>
+</S:Envelope>

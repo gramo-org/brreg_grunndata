@@ -31,7 +31,15 @@ module BrregGrunndata
       end
 
       shared_examples 'common client failures' do
-        it 'fails when status is -1, with no substatus'
+        it 'fails when status is -1, with no substatus' do
+          savon
+            .expects(:hent_basisdata_mini)
+            .with(message: hash_including(message))
+            .returns(read_fixture('fail_no_substatus'))
+
+          expect { subject.public_send(operation, message) }
+            .to raise_error ResponseValidator::UnexpectedError
+        end
 
         it 'fails when call was unauthenticated, status -1, substatus 101' do
           savon
