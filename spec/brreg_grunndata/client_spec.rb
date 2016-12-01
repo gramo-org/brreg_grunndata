@@ -52,7 +52,13 @@ module BrregGrunndata
         end
       end
 
-      describe 'hent_basisdata_mini' do
+      describe '#sok_enhet' do
+        let(:operation) { 'sok_enhet' }
+
+        it 'makes correct request including CDATA, inner xml.'
+      end
+
+      describe '#hent_basisdata_mini' do
         let(:operation) { 'hent_basisdata_mini' }
         let(:message) { { orgnr: '992090936' } }
 
