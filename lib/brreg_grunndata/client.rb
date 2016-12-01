@@ -43,13 +43,31 @@ module BrregGrunndata
     #
     # Makes it possible to find an organization from name
     #
+    # TODO:
+    # Need to serialise search differently. As I got from BBREG by email,
+    # search request parameter needs to contain:
+    #
+    # <![CDATA[
+    #   <?xml version="1.0"?>
+    #   <BrAixXmlRequest RequestName="BrErfrSok">
+    #     <BrErfrSok>
+    #       <BrSokeStreng>STATOIL</BrSokeStreng>
+    #       <MaxTreffReturneres>1000</MaxTreffReturneres>
+    #       <ReturnerIngenHvisMax>true</ReturnerIngenHvisMax>
+    #       <RequestingIPAddr>010.001.052.011</RequestingIPAddr>
+    #       <RequestingTjeneste>SOAP</RequestingTjeneste>
+    #       <MedUnderenheter>true</MedUnderenheter>
+    #     </BrErfrSok>
+    #   </BrAixXmlRequest>
+    # ]]
+    #
     # Attributes
     #   query   - Your query as a string
     #
     # @return BrregGrunndata::Response
-    def sok_enhet(query:)
-      call :sok_enhet, search_request: query
-    end
+    # def sok_enhet(query:)
+    #   call :sok_enhet, search_request: query
+    # end
 
     # Gets extended information about an organization
     #
