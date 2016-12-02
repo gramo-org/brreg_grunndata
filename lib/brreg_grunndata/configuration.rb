@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module BrregGrunndata
   # Contains configuration for the web service client
   class Configuration
-    WSDL = 'https://ws.brreg.no/grunndata/ErFr?WSDL'.freeze
+    WSDL = 'https://ws.brreg.no/grunndata/ErFr?WSDL'
 
     attr_reader :userid, :password, :logger, :log_level, :wsdl
 

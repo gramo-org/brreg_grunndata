@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BrregGrunndata
   class ResponseValidator
     # Base class for all errors raised if header isn't indicating a success
