@@ -48,9 +48,9 @@ module BrregGrunndata
     #   query   - Your query as a string
     #
     # @return BrregGrunndata::Response
-    def sok_enhet(query:)
-      call :sok_enhet, search_request!: SokEnhetQueryToXml.new(query).cdata
-    end
+    # def sok_enhet(query:)
+    #   call :sok_enhet, search_request!: SokEnhetQueryToXml.new(query).cdata
+    # end
 
     # Gets extended information about an organization
     #
