@@ -68,7 +68,7 @@ module BrregGrunndata
             savon
               .expects(:hent_basisdata_mini)
               .with(message: hash_including(message))
-              .returns(read_fixture('success_hent_basisdata_mini'))
+              .returns(read_fixture('hent_basisdata_mini_success'))
           end
 
           include_examples 'common client successes'

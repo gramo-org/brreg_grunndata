@@ -21,7 +21,7 @@ module BrregGrunndata
 
       describe '#header' do
         context 'success' do
-          let(:raw_body) { read_fixture('success_hent_basisdata_mini') }
+          let(:raw_body) { read_fixture('hent_basisdata_mini_success') }
 
           it 'returns a ResponseHeader' do
             expect(subject.header).to be_a ResponseHeader
@@ -50,7 +50,7 @@ module BrregGrunndata
 
       describe '#message' do
         context 'success' do
-          let(:raw_body) { read_fixture('success_hent_basisdata_mini') }
+          let(:raw_body) { read_fixture('hent_basisdata_mini_success') }
 
           it 'returns expected message as hash' do
             expect(subject.message[:organisasjonsnummer]).to eq '992090936'
