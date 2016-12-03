@@ -6,7 +6,8 @@ module BrregGrunndata
   # The service returns ruby objects with data fetched from API
   #
   # This interface has a higher abstraction than working directly
-  # with the Client.
+  # with the Client, where the object you get back has coerced values
+  # instead of working with a hash of strings.
   #
   # @see Client
   class Service

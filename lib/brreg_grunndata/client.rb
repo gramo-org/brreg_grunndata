@@ -16,6 +16,8 @@ module BrregGrunndata
   #   - Unwrap the return value (which is a XML string)
   #   - Handle common errors
   #   - Has a clear interface of the soap operations we support.
+  #
+  # @see Service
   class Client
     def initialize(configuration:, service: nil)
       @configuration = configuration
