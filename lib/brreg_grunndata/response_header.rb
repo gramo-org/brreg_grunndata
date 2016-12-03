@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BrregGrunndata
   # Represents a response header from brreg
   #

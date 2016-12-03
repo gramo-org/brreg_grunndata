@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'brreg_grunndata/version'
 
 require_relative 'brreg_grunndata/error'

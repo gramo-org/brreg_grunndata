@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'savon'
 
 require_relative 'response'
@@ -45,12 +47,22 @@ module BrregGrunndata
     # Makes it possible to find an organization from name
     #
     # Attributes
-    #   query   - Your query as a string
-    #
+    #   query             -   Your search string / query goes here
+    #   first             -   How many do you want to get in return? (the limit)
+    #   include_no_if_max -   Do you want zero results if your search yields more
+    #                         results than the first X you asked for? I don't know
+    #                         why you would want that.
+    #   with_subdivision  -   Do you want to include organization form BEDR og AAFY
+    #                         when you search?
     # @return BrregGrunndata::Response
-    # def sok_enhet(query:)
-    #   call :sok_enhet, search_request!: SokEnhetQueryToXml.new(query).cdata
-    # end
+    def sok_enhet(query:, first: 100, include_no_if_max: false, with_subdivision: true)
+      call :sok_enhet, search_request!: SokEnhetQueryToXml.new(
+        query,
+        first: first,
+        include_no_if_max: include_no_if_max,
+        with_subdivision: with_subdivision
+      ).cdata
+    end
 
     # Gets extended information about an organization
     #
