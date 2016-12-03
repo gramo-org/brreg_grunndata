@@ -27,7 +27,7 @@ module BrregGrunndata
 
         it 'returns a response of expected type' do
           expect(subject.public_send(operation, message))
-            .to be_a BrregGrunndata::Response
+            .to be_a BrregGrunndata::Client::Response
         end
       end
 
@@ -39,7 +39,7 @@ module BrregGrunndata
             .returns(read_fixture('fail_no_substatus'))
 
           expect { subject.public_send(operation, message) }
-            .to raise_error ResponseValidator::UnexpectedError
+            .to raise_error Client::ResponseValidator::UnexpectedError
         end
 
         it 'fails when call was unauthenticated, status -1, substatus 101' do
@@ -49,7 +49,7 @@ module BrregGrunndata
             .returns(read_fixture('fail_authorization'))
 
           expect { subject.public_send(operation, message) }
-            .to raise_error ResponseValidator::UnauthorizedError
+            .to raise_error Client::ResponseValidator::UnauthorizedError
         end
       end
 

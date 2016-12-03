@@ -2,9 +2,9 @@
 
 require 'savon'
 
-require_relative 'response'
-require_relative 'response_validator'
-require_relative 'sok_enhet_query_to_xml'
+require_relative 'client/response'
+require_relative 'client/response_validator'
+require_relative 'client/sok_enhet_query_to_xml'
 
 module BrregGrunndata
   # Brreg client to access brreg's data
