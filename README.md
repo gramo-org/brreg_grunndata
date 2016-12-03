@@ -9,7 +9,7 @@ Ruby wrapper for brreg / enhetsregisteret's [soap web service](https://www.brreg
 This lib exposes a couple of ways getting data from BRREG. You can either use
 the `Client` directly which gives direct access to response, it's `#message` (data)
 and `#header` (BRREG's status and sub statuses) or you can use the `Service`
-which returns data as objects where types is defined.
+which returns data put in predefined types.
 
 ## How to use the client
 
@@ -49,9 +49,10 @@ service = BrregGrunndata::Service.new client: client
 # If an error occurs an error will be raised
 organization = service.hent_basisdata_mini orgnr: '123456789'
 
-organization.organization_number
+organization.orgnr
 organization.name
-organization.business_address # An address object
+organization.business_address # An address object, responds to street etc.
+organization.organizational_form.name # ENK, ASA, etc
 # ..etc
 
 # You can access the response if you need to by:

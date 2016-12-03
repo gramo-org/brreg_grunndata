@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'types/organization'
+require_relative 'types/factories'
 
 module BrregGrunndata
   # The service returns ruby objects with data fetched from API
@@ -23,7 +23,7 @@ module BrregGrunndata
     #
     # @return BrregGrunndata::Types::Organization
     def hent_basisdata_mini(orgnr:)
-      Types::Organization.from_response client.hent_basisdata_mini orgnr: orgnr
+      Types::FromResponseFactory.organization client.hent_basisdata_mini orgnr: orgnr
     rescue Client::Response::MessageEmptyError
       nil
     end

@@ -85,24 +85,7 @@ module BrregGrunndata
 
           it 'contains expected message' do
             response = subject.hent_basisdata_mini(message)
-
-            # rubocop:disable Style/BracesAroundHashParameters
-            # rubocop:disable Style/SpaceAroundOperators
-            # rubocop:disable Style/SpaceInsideHashLiteralBraces
-            # rubocop:disable Style/AlignHash
-            expect(response.message).to eq(
-              {
-                :organisasjonsnummer=>'992090936',
-                :navn=>{:navn1=>'PETER SKEIDE CONSULTING', :@registrerings_dato=>'2007-12-19'},
-                :forretnings_adresse=>{:adresse1=>'Bård Skolemesters vei 6', :postnr=>'0590',
-                :poststed=>'OSLO', :kommunenummer=>'0301', :kommune=>'OSLO', :landkode=>'NOR',
-                :land=>'Norge', :@registrerings_dato=>'2008-04-01'},
-                :organisasjonsform=>{:orgform=>'ENK', :orgform_beskrivelse=>'Enkeltpersonforetak',
-                  :@registrerings_dato=>'2007-12-19'},
-                :@tjeneste=>'hentBasisdataMini'
-              }
-            )
-            # rubocop:enable all
+            expect(response.message).to eq fixture_hent_basisdata_mini_hash
           end
         end
 

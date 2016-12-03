@@ -3,6 +3,7 @@
 require 'spec_helper'
 
 module BrregGrunndata
+  # rubocop:disable Metrics/BlockLength
   describe Service do
     let(:empty_response) do
       instance_double(Client::Response).tap do |r|
@@ -16,7 +17,28 @@ module BrregGrunndata
 
     describe '#hent_basisdata_mini' do
       context 'found' do
-        it 'returns an organization with expected data'
+        let(:filled_response) do
+          instance_double Client::Response,
+                          message: fixture_hent_basisdata_mini_hash(orgnr: '923609016')
+        end
+
+        before do
+          expect(client).to receive(:hent_basisdata_mini).and_return filled_response
+        end
+
+        it 'returns an organization with expected data' do
+          organization = subject.hent_basisdata_mini orgnr: '992090936'
+
+          expect(organization).to be_a Types::Organization
+
+          expect(organization.orgnr).to eq 923_609_016
+          expect(organization.name).to eq 'STATOIL ASA'
+          expect(organization.business_address.street).to eq 'Forusbeen 50'
+          expect(organization.business_address.municipality).to eq 'STAVANGER'
+          expect(organization.postal_address.street).to eq 'Postboks 8500'
+          expect(organization.postal_address.municipality_number).to eq '1103'
+          expect(organization.organizational_form.name).to eq 'ASA'
+        end
       end
 
       context 'not found' do
