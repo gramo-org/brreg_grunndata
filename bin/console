@@ -33,4 +33,9 @@ def client(debug: false, userid: nil, password: nil)
 end
 alias c client
 
+def service(debug: false, userid: nil, password: nil)
+  BrregGrunndata::Service.new client: client(debug: debug, userid: userid, password: password)
+end
+alias s service
+
 Pry.start
