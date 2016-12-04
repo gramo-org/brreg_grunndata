@@ -4,6 +4,8 @@ module BrregGrunndata
   module Utils
     # Runs operations against a service or client concurrently
     class ConcurrentOperations
+      class UnkownOperationError < Error; end
+
       def initialize(service_or_client, operations, args)
         @service_or_client = service_or_client
         @operations = operations
@@ -22,13 +24,23 @@ module BrregGrunndata
 
         threads = @operations.each_with_index.map do |operation, index|
           Thread.new do
-            results[index] = @service_or_client.public_send operation, @args
+            results[index] = call_on_service_or_client operation
           end
         end
 
         threads.each(&:join)
 
         results
+      end
+
+      private
+
+      def call_on_service_or_client(operation)
+        unless @service_or_client.respond_to? operation
+          raise UnkownOperationError, "#{@service_or_client} does not respond to #{operation}"
+        end
+
+        @service_or_client.public_send operation, @args
       end
     end
 

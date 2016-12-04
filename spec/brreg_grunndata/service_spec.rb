@@ -127,6 +127,13 @@ module BrregGrunndata
           expect(organization).to be_nil
         end
       end
+
+      context 'operation does not exist' do
+        it 'raises error' do
+          expect { subject.run_concurrently [:boom], orgnr: '123456789' }
+            .to raise_error Utils::ConcurrentOperations::UnkownOperationError
+        end
+      end
     end
   end
 end
