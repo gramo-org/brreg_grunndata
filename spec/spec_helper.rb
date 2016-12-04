@@ -42,6 +42,27 @@ module FixtureHelper
       raise "Don't have any data for orgnr #{orgnr}"
     end
   end
+
+  def fixture_hent_kontaktdata_hash(orgnr: '992090936')
+    case orgnr
+    when '992090936'
+      {
+        :organisasjonsnummer=>"992090936",
+        :mobiltelefonnummer=>"905 73 014",
+        :epostadresse=>"peterskeide@yahoo.no",
+        :@tjeneste=>"hentKontaktdata"
+      }
+    when '923609016'
+      {
+        :organisasjonsnummer=>"923609016",
+        :telefonnummer=>"51 99 00 00",
+        :telefaksnummer=>"51 99 00 50",
+        :hjemmesideadresse=>"www.statoil.com",
+        :@tjeneste=>"hentKontaktdata"}
+    else
+      raise "Don't have any data for orgnr #{orgnr}"
+    end
+  end
   # rubocop:enable all
 end
 

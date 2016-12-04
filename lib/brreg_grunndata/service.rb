@@ -25,8 +25,16 @@ module BrregGrunndata
     # @return BrregGrunndata::Types::Organization
     def hent_basisdata_mini(orgnr:)
       Types::FromResponseFactory.organization client.hent_basisdata_mini orgnr: orgnr
-    rescue Client::Response::MessageEmptyError
-      nil
+    end
+
+    # Get contact information for an organization
+    #
+    # Attributes
+    #   orgnr   - The orgnr you are searching for
+    #
+    # @return BrregGrunndata::Types::Organization
+    def hent_kontaktdata(orgnr:)
+      Types::FromResponseFactory.organization client.hent_kontaktdata orgnr: orgnr
     end
   end
 end
