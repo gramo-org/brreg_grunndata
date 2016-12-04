@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'types/factories'
+require_relative 'utils'
 
 module BrregGrunndata
   # The service returns ruby objects with data fetched from API
@@ -15,6 +16,21 @@ module BrregGrunndata
 
     def initialize(client:)
       @client = client
+    end
+
+    # Runs given operations concurrently
+    #
+    # Arguments
+    #   operations    -   An array of operations to run concurrently
+    #                     The named operations must be defined as
+    #                     methods on the service and they must return same type.
+    #   args          -   All other arguments are passed on to each operations.
+    def run_concurrently(operations, **args)
+      results = Utils::ConcurrentOperations.new(self, operations, args).call
+
+      return nil if results.any?(&:nil?)
+
+      results.reduce { |acc, elem| acc.merge elem }
     end
 
     # Get basic mini data of an organization

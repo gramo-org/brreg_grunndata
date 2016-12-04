@@ -2,6 +2,36 @@
 
 module BrregGrunndata
   module Utils
+    # Runs operations against a service or client concurrently
+    class ConcurrentOperations
+      def initialize(service_or_client, operations, args)
+        @service_or_client = service_or_client
+        @operations = operations
+        @args = args
+      end
+
+      # Calls all operations
+      #
+      # NOTE  There hasn't been put much effort in to this class, so
+      #       when it comes to timeour or error handling you may encounter
+      #       situaitons it does not currently handle
+      #
+      # @return Array of all results. Same order as operations where given.
+      def call
+        results = []
+
+        threads = @operations.each_with_index.map do |operation, index|
+          Thread.new do
+            results[index] = @service_or_client.public_send operation, @args
+          end
+        end
+
+        threads.each(&:join)
+
+        results
+      end
+    end
+
     # Helper class to merge two objects instance of Types::Base.
     class BaseTypeMerger
       def initialize(a, b)
