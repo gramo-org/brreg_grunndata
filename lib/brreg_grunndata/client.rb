@@ -19,6 +19,9 @@ module BrregGrunndata
   #
   # @see Service
   class Client
+    # Raised when we have a timeout error
+    class TimeoutError < Error; end
+
     def initialize(configuration:, service: nil)
       @configuration = configuration
       @service = service || build_savon_service
@@ -108,10 +111,15 @@ module BrregGrunndata
       ResponseValidator.new(
         Response.new(savon_response)
       ).raise_error_or_return_response!
+    rescue ::Net::ReadTimeout
+      raise TimeoutError
     end
 
+    # rubocop:disable Metrics/MethodLength
     def build_savon_service
       options = {
+        open_timeout: configuration.open_timeout,
+        read_timeout: configuration.read_timeout,
         wsdl: configuration.wsdl
       }
 
@@ -123,6 +131,7 @@ module BrregGrunndata
 
       Savon.client options
     end
+    # rubocop:enable Metrics/MethodLength
 
     def credentials
       {

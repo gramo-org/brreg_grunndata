@@ -5,14 +5,29 @@ module BrregGrunndata
   class Configuration
     WSDL = 'https://ws.brreg.no/grunndata/ErFr?WSDL'
 
-    attr_reader :userid, :password, :logger, :log_level, :wsdl
+    attr_reader :userid, :password,
+                :open_timeout, :read_timeout,
+                :logger, :log_level,
+                :wsdl
 
-    def initialize(userid:, password:, logger: nil, log_level: :info, wsdl: WSDL)
+    # rubocop:disable Metrics/ParameterLists
+    def initialize(
+      userid:,
+      password:,
+      open_timeout: 2,
+      read_timeout: 2,
+      logger: nil,
+      log_level: :info,
+      wsdl: WSDL
+    )
       @userid = userid
       @password = password
+      @open_timeout = open_timeout
+      @read_timeout = read_timeout
       @logger = logger
       @log_level = log_level
       @wsdl = wsdl
     end
+    # rubocop:enable Metrics/ParameterLists
   end
 end

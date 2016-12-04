@@ -128,6 +128,18 @@ module BrregGrunndata
         end
       end
 
+      context 'partially error' do
+        before do
+          expect(client).to receive(:hent_basisdata_mini).and_return filled_basisdata_response
+          expect(client).to receive(:hent_kontaktdata).and_raise Client::TimeoutError
+        end
+
+        it 'raises the error' do
+          expect { subject.run_concurrently operations, orgnr: '123456789' }
+            .to raise_error Client::TimeoutError
+        end
+      end
+
       context 'operation does not exist' do
         it 'raises error' do
           expect { subject.run_concurrently [:boom], orgnr: '123456789' }

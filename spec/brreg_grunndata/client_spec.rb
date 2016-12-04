@@ -51,6 +51,15 @@ module BrregGrunndata
           expect { subject.public_send(operation, message) }
             .to raise_error Client::ResponseValidator::UnauthorizedError
         end
+
+        it 'fails on timeout' do
+          expect(subject)
+            .to receive_message_chain(:service, :call)
+            .and_raise ::Net::ReadTimeout
+
+          expect { subject.public_send(operation, message) }
+            .to raise_error Client::TimeoutError
+        end
       end
 
       describe '#sok_enhet' do
