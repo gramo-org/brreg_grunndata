@@ -65,7 +65,14 @@ module BrregGrunndata
       describe '#sok_enhet' do
         let(:operation) { 'sok_enhet' }
 
-        it 'makes correct request including CDATA, inner xml.'
+        it 'makes correct request including CDATA, inner xml.' do
+          savon
+            .expects(:sok_enhet)
+            .with(message: hash_including(search_request!: '<![CDATA[<BrAixXmlRequest RequestName="BrErfrSok"><BrErfrSok><BrSokeStreng>STATOIL</BrSokeStreng><MaxTreffReturneres>100</MaxTreffReturneres><ReturnerIngenHvisMax>true</ReturnerIngenHvisMax><RequestingIPAddr>010.001.052.011</RequestingIPAddr><RequestingTjeneste>SOAP</RequestingTjeneste><MedUnderenheter>true</MedUnderenheter></BrErfrSok></BrAixXmlRequest>]]>'))
+            .returns(read_fixture('hent_basisdata_mini_success'))
+
+          subject.sok_enhet query: 'STATOIL'
+        end
       end
 
       describe '#hent_basisdata_mini' do
