@@ -14,7 +14,7 @@ module BrregGrunndata
 
     # Base class for all BrregGrunndata's types
     class Base < Dry::Struct
-      # Allow for missing keys in the input data.
+      # Allow missing keys in the input data.
       # Missing data will get default value or nil.
       constructor_type :schema
 
