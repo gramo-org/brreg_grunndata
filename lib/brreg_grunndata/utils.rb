@@ -2,10 +2,38 @@
 
 module BrregGrunndata
   module Utils
+    # Helper class to merge two objects instance of Types::Base.
+    class BaseTypeMerger
+      def initialize(a, b)
+        if a.class != b.class
+          raise ArgumentError, "#{b.class.name} is not of type #{a.class.name}"
+        end
+
+        @a = a
+        @b = b
+      end
+
+      # Merges the two given classes a and b.
+      #
+      # @return A new instance of type @a
+      def merge
+        a_hash = without_empty_values @a.to_h
+        b_hash = without_empty_values @b.to_h
+
+        @a.class.new a_hash.merge b_hash
+      end
+
+      private
+
+      def without_empty_values(hash)
+        hash.delete_if { |_k, v| v.nil? }
+      end
+    end
+
     module StringExt
-      NAMESPACE_SEPARATOR = '::'.freeze
-      UNDERSCORE_SEPARATOR = '/'.freeze
-      UNDERSCORE_DIVISION_TARGET = '\1_\2'.freeze
+      NAMESPACE_SEPARATOR = '::'
+      UNDERSCORE_SEPARATOR = '/'
+      UNDERSCORE_DIVISION_TARGET = '\1_\2'
 
       refine String do
         # Underscores a string

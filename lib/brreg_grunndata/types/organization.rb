@@ -8,10 +8,10 @@ module BrregGrunndata
   module Types
     class Organization < Base
       attribute :orgnr,               Types::Coercible::Int
-      attribute :name,                Types::String
-      attribute :business_address,    Types::Address
-      attribute :postal_address,      Types::Address
-      attribute :organizational_form, Types::OrganizationalForm
+      attribute :name,                Types::String.optional
+      attribute :business_address,    Types::Address.optional
+      attribute :postal_address,      Types::Address.optional
+      attribute :organizational_form, Types::OrganizationalForm.optional
     end
   end
 end

@@ -49,14 +49,19 @@ service = BrregGrunndata::Service.new client: client
 # If an error occurs an error will be raised
 organization = service.hent_basisdata_mini orgnr: '123456789'
 
-organization.orgnr
-organization.name
-organization.business_address # An address object, responds to street etc.
+organization.orgnr                    # Not surprisingly the organization number
+organization.name                     # The name of this organization
+organization.business_address         # An address object, responds to street etc.
 organization.organizational_form.name # ENK, ASA, etc
 # ..etc
 
-# You can access the response if you need to by:
-organization.original_response
+# Some data are fetched from other soap operations
+organization.contact_information.telephone    # nil
+organization.contact_information.email        # nil
+
+merged_organization = organization.merge service.hent_kontaktdata orgnr: '123456789'
+organization.contact_information.telephone    # 77 66 55 44
+merged_organization.contact_information.email # 'email@example.com'
 ```
 
 # Web service documentation
