@@ -54,14 +54,35 @@ organization.name                     # The name of this organization
 organization.business_address         # An address object, responds to street etc.
 organization.organizational_form.name # ENK, ASA, etc
 # ..etc
+```
 
+### Merge data from different soap operations
+
+```ruby
 # Some data are fetched from other soap operations
-organization.contact_information.telephone    # nil
-organization.contact_information.email        # nil
+organization = service.hent_basisdata_mini orgnr: '123456789'
+
+organization.telephone_number   # nil
+organization.email              # nil
 
 merged_organization = organization.merge service.hent_kontaktdata orgnr: '123456789'
-organization.contact_information.telephone    # 77 66 55 44
-merged_organization.contact_information.email # 'email@example.com'
+merged_organization.telephone_number  # 77 66 55 44
+merged_organization.email             # 'email@example.com'
+```
+
+### Get data efficiently
+
+Data for one organization is spread over multiple operations.
+If you want you can use `#service.run_concurrently` to use threads
+and execute different operations at the same time. Data returned from
+each service will be `#merge`-ed  together.
+
+```ruby
+operations = [:hent_basisdata_mini, :hent_kontaktdata]
+organization = service.run_concurrently operations, orgnr: '123456789'
+
+organization.name           # Filled from operation hent_basisdata_mini
+organization.mobile_number  # Filled from operation hent_kontaktdata
 ```
 
 # Web service documentation
