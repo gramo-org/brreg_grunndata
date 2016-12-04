@@ -26,7 +26,7 @@ module BrregGrunndata
 
     # Get basic mini data of an organization
     #
-    # Attributes
+    # Arguments
     #   orgnr   - The orgnr you are searching for
     #
     # @return BrregGrunndata::Response
@@ -36,7 +36,7 @@ module BrregGrunndata
 
     # Get contact information for an organization
     #
-    # Attributes
+    # Arguments
     #   orgnr   - The orgnr you are searching for
     #
     # @return BrregGrunndata::Response
@@ -48,7 +48,7 @@ module BrregGrunndata
     #
     # Makes it possible to find an organization from name
     #
-    # Attributes
+    # Arguments
     #   query             -   Your search string / query goes here
     #   first             -   How many do you want to get in return? (the limit)
     #   include_no_if_max -   Do you want zero results if your search yields more
@@ -71,7 +71,7 @@ module BrregGrunndata
     # This returns information regarding organization is
     # "Foretaksregisteret", "Merverdiavgiftsregisteret", or "konkursbehandling"
     #
-    # Attributes
+    # Arguments
     #   orgnr   - The orgnr you are searching for
     #
     # @return BrregGrunndata::Response
@@ -84,7 +84,7 @@ module BrregGrunndata
     # Contains information about "naeringskode", "sektorkode", "ansvarskapital"
     # and number of employees
     #
-    # Attributes
+    # Arguments
     #   orgnr   - The orgnr you are searching for
     #
     # @return BrregGrunndata::Response

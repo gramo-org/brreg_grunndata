@@ -19,7 +19,7 @@ module BrregGrunndata
 
     # Get basic mini data of an organization
     #
-    # Attributes
+    # Arguments
     #   orgnr   - The orgnr you are searching for
     #
     # @return BrregGrunndata::Types::Organization
@@ -29,7 +29,7 @@ module BrregGrunndata
 
     # Get contact information for an organization
     #
-    # Attributes
+    # Arguments
     #   orgnr   - The orgnr you are searching for
     #
     # @return BrregGrunndata::Types::Organization
