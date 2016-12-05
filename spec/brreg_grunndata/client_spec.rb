@@ -27,7 +27,7 @@ module BrregGrunndata
 
         it 'returns a response of expected type' do
           expect(subject.public_send(operation, message))
-            .to be_a BrregGrunndata::Response
+            .to be_a BrregGrunndata::Client::Response
         end
       end
 
@@ -39,7 +39,7 @@ module BrregGrunndata
             .returns(read_fixture('fail_no_substatus'))
 
           expect { subject.public_send(operation, message) }
-            .to raise_error ResponseValidator::UnexpectedError
+            .to raise_error Client::ResponseValidator::UnexpectedError
         end
 
         it 'fails when call was unauthenticated, status -1, substatus 101' do
@@ -49,7 +49,7 @@ module BrregGrunndata
             .returns(read_fixture('fail_authorization'))
 
           expect { subject.public_send(operation, message) }
-            .to raise_error ResponseValidator::UnauthorizedError
+            .to raise_error Client::ResponseValidator::UnauthorizedError
         end
       end
 
@@ -68,7 +68,7 @@ module BrregGrunndata
             savon
               .expects(:hent_basisdata_mini)
               .with(message: hash_including(message))
-              .returns(read_fixture('success_hent_basisdata_mini'))
+              .returns(read_fixture('hent_basisdata_mini_success'))
           end
 
           include_examples 'common client successes'
@@ -85,24 +85,7 @@ module BrregGrunndata
 
           it 'contains expected message' do
             response = subject.hent_basisdata_mini(message)
-
-            # rubocop:disable Style/BracesAroundHashParameters
-            # rubocop:disable Style/SpaceAroundOperators
-            # rubocop:disable Style/SpaceInsideHashLiteralBraces
-            # rubocop:disable Style/AlignHash
-            expect(response.message).to eq(
-              {
-                :organisasjonsnummer=>'992090936',
-                :navn=>{:navn1=>'PETER SKEIDE CONSULTING', :@registrerings_dato=>'2007-12-19'},
-                :forretnings_adresse=>{:adresse1=>'Bård Skolemesters vei 6', :postnr=>'0590',
-                :poststed=>'OSLO', :kommunenummer=>'0301', :kommune=>'OSLO', :landkode=>'NOR',
-                :land=>'Norge', :@registrerings_dato=>'2008-04-01'},
-                :organisasjonsform=>{:orgform=>'ENK', :orgform_beskrivelse=>'Enkeltpersonforetak',
-                  :@registrerings_dato=>'2007-12-19'},
-                :@tjeneste=>'hentBasisdataMini'
-              }
-            )
-            # rubocop:enable all
+            expect(response.message).to eq fixture_hent_basisdata_mini_hash
           end
         end
 

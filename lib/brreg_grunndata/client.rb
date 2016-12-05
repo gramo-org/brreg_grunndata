@@ -2,9 +2,9 @@
 
 require 'savon'
 
-require_relative 'response'
-require_relative 'response_validator'
-require_relative 'sok_enhet_query_to_xml'
+require_relative 'client/response'
+require_relative 'client/response_validator'
+require_relative 'client/sok_enhet_query_to_xml'
 
 module BrregGrunndata
   # Brreg client to access brreg's data
@@ -16,6 +16,8 @@ module BrregGrunndata
   #   - Unwrap the return value (which is a XML string)
   #   - Handle common errors
   #   - Has a clear interface of the soap operations we support.
+  #
+  # @see Service
   class Client
     def initialize(configuration:, service: nil)
       @configuration = configuration
@@ -24,7 +26,7 @@ module BrregGrunndata
 
     # Get basic mini data of an organization
     #
-    # Attributes
+    # Arguments
     #   orgnr   - The orgnr you are searching for
     #
     # @return BrregGrunndata::Response
@@ -34,7 +36,7 @@ module BrregGrunndata
 
     # Get contact information for an organization
     #
-    # Attributes
+    # Arguments
     #   orgnr   - The orgnr you are searching for
     #
     # @return BrregGrunndata::Response
@@ -46,7 +48,7 @@ module BrregGrunndata
     #
     # Makes it possible to find an organization from name
     #
-    # Attributes
+    # Arguments
     #   query             -   Your search string / query goes here
     #   first             -   How many do you want to get in return? (the limit)
     #   include_no_if_max -   Do you want zero results if your search yields more
@@ -69,7 +71,7 @@ module BrregGrunndata
     # This returns information regarding organization is
     # "Foretaksregisteret", "Merverdiavgiftsregisteret", or "konkursbehandling"
     #
-    # Attributes
+    # Arguments
     #   orgnr   - The orgnr you are searching for
     #
     # @return BrregGrunndata::Response
@@ -82,7 +84,7 @@ module BrregGrunndata
     # Contains information about "naeringskode", "sektorkode", "ansvarskapital"
     # and number of employees
     #
-    # Attributes
+    # Arguments
     #   orgnr   - The orgnr you are searching for
     #
     # @return BrregGrunndata::Response
