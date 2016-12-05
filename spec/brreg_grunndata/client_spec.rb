@@ -103,7 +103,9 @@ module BrregGrunndata
           it 'returns expected message' do
             response = subject.sok_enhet query: 'STATOIL ASA'
 
-            p response.message
+            expect(response.message.dig(
+              :br_aix_xml_response, :br_erfr_treffliste, :br_erfr_treffliste_element
+            ).length).to eq 61
           end
         end
       end
