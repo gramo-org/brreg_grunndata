@@ -165,9 +165,9 @@ module BrregGrunndata
             expect(response.header.main_status).to eq 0
             expect(response.header.sub_statuses).to eq [
               { code: 0,    message: 'Data returnert' },
-              { code: 1115, message: 'Enhet 992090936 har ikke telefon'},
-              { code: 1116, message: 'Enhet 992090936 har ikke telefaks'},
-              { code: 1119, message: 'Enhet 992090936 har ikke hjemmeside'}
+              { code: 1115, message: 'Enhet 992090936 har ikke telefon' },
+              { code: 1116, message: 'Enhet 992090936 har ikke telefaks' },
+              { code: 1119, message: 'Enhet 992090936 har ikke hjemmeside' }
             ]
           end
 
