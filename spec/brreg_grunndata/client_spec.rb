@@ -144,6 +144,43 @@ module BrregGrunndata
           include_examples 'common client failures'
         end
       end
+
+      describe '#hent_kontaktdata' do
+        let(:operation) { :hent_kontaktdata }
+        let(:message) { { orgnr: '992090936' } }
+
+        context 'success' do
+          before do
+            savon
+              .expects(:hent_kontaktdata)
+              .with(message: hash_including(message))
+              .returns(read_fixture('hent_kontaktdata_success'))
+          end
+
+          include_examples 'common client successes'
+
+          it 'contains expected header with main_status and sub_statuses' do
+            response = subject.hent_kontaktdata(message)
+
+            expect(response.header.main_status).to eq 0
+            expect(response.header.sub_statuses).to eq [
+              { code: 0,    message: 'Data returnert' },
+              { code: 1115, message: 'Enhet 992090936 har ikke telefon'},
+              { code: 1116, message: 'Enhet 992090936 har ikke telefaks'},
+              { code: 1119, message: 'Enhet 992090936 har ikke hjemmeside'}
+            ]
+          end
+
+          it 'contains expected message' do
+            response = subject.hent_kontaktdata(message)
+            expect(response.message).to eq fixture_hent_kontaktdata_hash
+          end
+        end
+
+        context 'failures' do
+          include_examples 'common client failures'
+        end
+      end
     end
   end
 end
