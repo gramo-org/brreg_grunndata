@@ -3,7 +3,11 @@
 module BrregGrunndata
   # Contains configuration for the web service client
   class Configuration
-    WSDL = 'https://ws.brreg.no/grunndata/ErFr?WSDL'
+    # WSDL is located at this URL
+    WSDL_URL = 'https://ws.brreg.no/grunndata/ErFr?WSDL'
+
+    # We have a saved WSDL at this location on disk
+    WSDL_PATH = "#{__dir__}/wsdl/grunndata.xml"
 
     attr_reader :userid, :password,
                 :open_timeout, :read_timeout,
@@ -18,7 +22,7 @@ module BrregGrunndata
       read_timeout: 2,
       logger: nil,
       log_level: :info,
-      wsdl: WSDL
+      wsdl: WSDL_PATH
     )
       @userid = userid
       @password = password

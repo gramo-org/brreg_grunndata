@@ -17,7 +17,7 @@ module BrregGrunndata
     end
 
     it 'contains wsdl' do
-      expect(subject.wsdl).to eq described_class::WSDL
+      expect(subject.wsdl).to eq described_class::WSDL_PATH
     end
   end
 end
