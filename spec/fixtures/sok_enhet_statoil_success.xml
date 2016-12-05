@@ -1,0 +1,460 @@
+<?xml version='1.0' encoding='UTF-8'?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><sokEnhetResponse xmlns="http://no/brreg/saksys/grunndata/ws"><return>&lt;?xml version="1.0" encoding="ISO-8859-1"?>
+
+&lt;grunndata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ftp2.brreg.no/xml/skjema/grunndata/2008/01/10/sokEnhet.xsd">
+  &lt;responseHeader prossessDato="2016-12-04" tjeneste="sokEnhet">
+    &lt;hovedStatus>0&lt;/hovedStatus>
+    &lt;underStatus>
+      &lt;underStatusMelding kode="0">Data returnert&lt;/underStatusMelding>
+    &lt;/underStatus>
+  &lt;/responseHeader>
+  &lt;melding tjeneste="sokEnhet">
+    &lt;BrAixXmlResponse ResponseType="BrErfrTreffliste">
+      &lt;BrAixResponseHeader>
+        &lt;ReturStatus>0&lt;/ReturStatus>
+        &lt;TimeStamp>2016-12-04T19:47:19&lt;/TimeStamp>
+        &lt;ElapsedTime>201&lt;/ElapsedTime>
+        &lt;AntallTreff>61&lt;/AntallTreff>
+      &lt;/BrAixResponseHeader>
+      &lt;Sokeverdier>
+        &lt;BrSokeStreng>STATOIL ASA&lt;/BrSokeStreng>
+        &lt;OrgForm>ALLE&lt;/OrgForm>
+        &lt;Fylke Fylkesnr="0">ALLE&lt;/Fylke>
+        &lt;Kommune Kommunenr="0">ALLE&lt;/Kommune>
+        &lt;Slettet>N&lt;/Slettet>
+        &lt;MedUnderenheter>true&lt;/MedUnderenheter>
+        &lt;MaxTreffReturneres>100&lt;/MaxTreffReturneres>
+        &lt;ReturnerIngenHvisMax>true&lt;/ReturnerIngenHvisMax>
+      &lt;/Sokeverdier>
+      &lt;BrErfrTreffliste Antall="61">
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>873152362&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD KONTOR BERGEN&lt;/OrgNavn>
+          &lt;Sted>5254 SANDSLI&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>891770812&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD TNE NE HYD HT PROJECT&lt;/OrgNavn>
+          &lt;Sted>3674 NOTODDEN&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>892850372&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA KULTURKLUBB PORSGRUNN&lt;/OrgNavn>
+          &lt;Sted>3936 PORSGRUNN&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>FLI&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>893247092&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD HAMMERFEST LNG SNØHVIT&lt;/OrgNavn>
+          &lt;Sted>9601 HAMMERFEST&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>923609016&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA&lt;/OrgNavn>
+          &lt;Sted>4035 STAVANGER&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>ASA&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973101862&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD STURETERMINALEN&lt;/OrgNavn>
+          &lt;Sted>5336 TJELDSTØ&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973101870&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD EPN DRIFT NORD AVD KRISTIANSUND&lt;/OrgNavn>
+          &lt;Sted>6517 KRISTIANSUND N&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973152351&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD KONTOR STAVANGER&lt;/OrgNavn>
+          &lt;Sted>4033 STAVANGER&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973152378&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD KONTOR/PROSESSANLEGG KÅRSTØ&lt;/OrgNavn>
+          &lt;Sted>5565 TYSVÆRVÅG&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973152386&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD KONTOR HARSTAD&lt;/OrgNavn>
+          &lt;Sted>9414 HARSTAD&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973152394&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD KONTOR KRISTIANSUND N&lt;/OrgNavn>
+          &lt;Sted>6517 KRISTIANSUND N&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973152408&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD FORSKNINGSSENTER RANHEIM&lt;/OrgNavn>
+          &lt;Sted>7053 RANHEIM&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973152416&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD KONTOR FORNEBU&lt;/OrgNavn>
+          &lt;Sted>1364 FORNEBU&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973152424&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD RAFFINERI MONGSTAD&lt;/OrgNavn>
+          &lt;Sted>5954 MONGSTAD&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973861778&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD TROLL VEST FELTET&lt;/OrgNavn>
+          &lt;Sted>4035 STAVANGER&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973861832&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD DRIFTSSENTER BYGSNES&lt;/OrgNavn>
+          &lt;Sted>4250 KOPERVIK&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973861840&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD RÅOLJETERMINAL MONGSTAD&lt;/OrgNavn>
+          &lt;Sted>5954 MONGSTAD&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973861875&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD KONTOR FLORØ&lt;/OrgNavn>
+          &lt;Sted>6900 FLORØ&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973861883&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD CCB SOTRA&lt;/OrgNavn>
+          &lt;Sted>5347 ÅGOTNES&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973861891&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD KONTOR STJØRDAL&lt;/OrgNavn>
+          &lt;Sted>7502 STJØRDAL&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973861913&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD KONTOR SANDNES&lt;/OrgNavn>
+          &lt;Sted>4315 SANDNES&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>974160099&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD EPN DRIFT NORD AVD HARSTAD&lt;/OrgNavn>
+          &lt;Sted>9411 HARSTAD&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>981524403&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD TJELDBERGODDEN METANOLFABRIKK&lt;/OrgNavn>
+          &lt;Sted>6699 KJØRSVIKBUGEN&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>984042442&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD TNE RD FORSKNINGSSENTER&lt;/OrgNavn>
+          &lt;Sted>3936 PORSGRUNN&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>991770526&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD CSO GBS PRS PURCHASING&lt;/OrgNavn>
+          &lt;Sted>3660 RJUKAN&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>991770534&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD RØLDAL HPU&lt;/OrgNavn>
+          &lt;Sted>5750 ODDA&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>991770542&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD INTERNATIONAL&lt;/OrgNavn>
+          &lt;Sted>1337 SANDVIKA&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>991770577&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD FORTUN HPU&lt;/OrgNavn>
+          &lt;Sted>6872 LUSTER&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>991770593&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD FMS LDO VÆKERØ&lt;/OrgNavn>
+          &lt;Sted>0283 OSLO&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>991770631&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD PRO PSR PROCUREMENT WEST&lt;/OrgNavn>
+          &lt;Sted>4244 NESFLATEN&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>991770682&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD PRO PM MECHANICAL COMPL MCO&lt;/OrgNavn>
+          &lt;Sted>6884 ØVRE ÅRDAL&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>991770771&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD TNE RD TECH RESEARCH SUPPORT&lt;/OrgNavn>
+          &lt;Sted>3960 STATHELLE&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>991770798&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD ODV MECHANICAL&lt;/OrgNavn>
+          &lt;Sted>6884 ØVRE ÅRDAL&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>997341783&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD SANDNESSJØEN&lt;/OrgNavn>
+          &lt;Sted>8805 SANDNESSJØEN&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>998271711&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ASA AVD RYPEFJORD BASE&lt;/OrgNavn>
+          &lt;Sted>9610 RYPEFJORD&lt;/Sted>
+          &lt;Score>100&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>981363876&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL KAPITALFORVALTNING ASA&lt;/OrgNavn>
+          &lt;Sted>4035 STAVANGER&lt;/Sted>
+          &lt;Score>95&lt;/Score>
+          &lt;OrgForm>ASA&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>981457315&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL KAPITALFORVALTNING ASA&lt;/OrgNavn>
+          &lt;Sted>4033 STAVANGER&lt;/Sted>
+          &lt;Score>95&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>889094532&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL OIL &amp;amp; GAS BRAZIL AS&lt;/OrgNavn>
+          &lt;Sted>4035 STAVANGER&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>AS&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>912731456&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL PETROLEUM AS AASTA HANSTEEN&lt;/OrgNavn>
+          &lt;Sted>4035 STAVANGER&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>912731766&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL PETROLEUM AS KRISTIN GAS EXPORT PIPELINE&lt;/OrgNavn>
+          &lt;Sted&gt;4035 STAVANGER&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>916998821&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL BRASIL OLEO&amp;amp;GAS LTDA&lt;/OrgNavn>
+          &lt;Sted>Brasil (BR)&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>NUF&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>980189848&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL ZAGROS OIL AND GAS AS&lt;/OrgNavn>
+          &lt;Sted>4035 STAVANGER&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>AS&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>985079056&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL SP GAS AS&lt;/OrgNavn>
+          &lt;Sted>4035 STAVANGER&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>AS&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>985648085&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL NORTH AFRICA GAS AS&lt;/OrgNavn>
+          &lt;Sted>4035 STAVANGER&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>AS&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>988383945&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL OIL &amp;amp; GAS CUBA AS&lt;/OrgNavn>
+          &lt;Sted>4035 STAVANGER&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>AS&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>988694932&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL OIL &amp;amp; GAS MOZAMBIQUE AS&lt;/OrgNavn>
+          &lt;Sted>4035 STAVANGER&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>AS&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>990836426&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL GAS MARKETING EUROPE AS&lt;/OrgNavn>
+          &lt;Sted>4035 STAVANGER&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>AS&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>997756312&lt;/Orgnr>
+          &lt;OrgNavn>STATOIL AUSTRALIA OIL &amp;amp; GAS AS&lt;/OrgNavn>
+          &lt;Sted>4035 STAVANGER&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>AS&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>812728652&lt;/Orgnr>
+          &lt;OrgNavn>COOP SØR-HELGELAND SA STATOIL BEST VEGA&lt;/OrgNavn>
+          &lt;Sted>8980 VEGA&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>912723232&lt;/Orgnr>
+          &lt;OrgNavn>COOP FINNØY SA STATOIL AUTOMAT FINNØY&lt;/OrgNavn>
+          &lt;Sted>4160 FINNØY&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>912723259&lt;/Orgnr>
+          &lt;OrgNavn>COOP ORKLA MØRE SA STATOIL BEST FREI&lt;/OrgNavn>
+          &lt;Sted>6524 FREI&lt;/Sted>
+          &lt;Score>90&lt;/Score&gt;
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>912723712&lt;/Orgnr>
+          &lt;OrgNavn>COOP MELDAL SA STATOIL MELDAL&lt;/OrgNavn>
+          &lt;Sted>7336 MELDAL&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>912725138&lt;/Orgnr>
+          &lt;OrgNavn>COOP NORDLAND SA STATOIL ENGAVÅGEN&lt;/OrgNavn>
+          &lt;Sted>8170 ENGAVÅGEN&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>912725723&lt;/Orgnr>
+          &lt;OrgNavn>COOP NORD SA STATOIL MEISTERVIK&lt;/OrgNavn>
+          &lt;Sted>9055 MEISTERVIK&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>912725901&lt;/Orgnr>
+          &lt;OrgNavn>UNDHEIM HANDELSLAG SA STATOIL AUTOMAT UNDHEIM&lt;/OrgNavn>
+          &lt;Sted>4342 UNDHEIM&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>912728641&lt;/Orgnr>
+          &lt;OrgNavn>COOP SØR-HELGELAND SA STATOIL BEST VEVELSTAD&lt;/OrgNavn>
+          &lt;Sted>8976 VEVELSTAD&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr&gt;916876610&lt;/Orgnr>
+          &lt;OrgNavn>VERDIPAPIRFONDET STATOIL AKSJER USA&lt;/OrgNavn>
+          &lt;Sted>4035 STAVANGER&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>VPFO&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>972230898&lt;/Orgnr>
+          &lt;OrgNavn>COOP SØR-HELGLAND SA AVD STATOIL SERVICE BERG&lt;/OrgNavn>
+          &lt;Sted>8920 SØMNA&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>973086383&lt;/Orgnr>
+          &lt;OrgNavn>COOP ØST SA AVD 5450 STATOIL ÅRNES&lt;/OrgNavn>
+          &lt;Sted>2150 ÅRNES&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>977067596&lt;/Orgnr>
+          &lt;OrgNavn>COOP SØR-HELGELAND SA AVD 400 STATOIL SERVICE BRØNNØYSUND&lt;/OrgNavn>
+          &lt;Sted>8900 BRØNNØYSUND&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+        &lt;BrErfrTrefflisteElement>
+          &lt;Orgnr>988657573&lt;/Orgnr>
+          &lt;OrgNavn>COOP RØROS SA AVD STATOIL SERVICE BREKKEN&lt;/OrgNavn>
+          &lt;Sted>7370 BREKKEBYGD&lt;/Sted>
+          &lt;Score>90&lt;/Score>
+          &lt;OrgForm>BEDR&lt;/OrgForm>
+        &lt;/BrErfrTrefflisteElement>
+      &lt;/BrErfrTreffliste>
+    &lt;/BrAixXmlResponse>
+  &lt;/melding>
+&lt;/grunndata>
+</return></sokEnhetResponse></S:Body></S:Envelope>

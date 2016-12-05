@@ -19,6 +19,9 @@ module BrregGrunndata
   #
   # @see Service
   class Client
+    # Raised when we have a timeout error
+    class TimeoutError < Error; end
+
     def initialize(configuration:, service: nil)
       @configuration = configuration
       @service = service || build_savon_service
@@ -47,6 +50,45 @@ module BrregGrunndata
     # Search for an organization
     #
     # Makes it possible to find an organization from name
+    #
+    # NOTE
+    # ==================
+    # The response.message you get back seems to be a document of it's own,
+    # with header, some info about the search, and the hits.
+    #
+    # We may choose to do something with this message response in the
+    # future, or make this easier to use on the service level.
+    #
+    # Currently its structure is something like:
+    #
+    # <BrAixXmlResponse ResponseType="BrErfrTreffliste">
+    #   <BrAixResponseHeader>
+    #     <ReturStatus>0</ReturStatus>
+    #     <TimeStamp>2016-12-04T20:03:09</TimeStamp>
+    #     <ElapsedTime>168</ElapsedTime>
+    #     <AntallTreff>61</AntallTreff>
+    #   </BrAixResponseHeader>
+    #   <Sokeverdier>
+    #     <BrSokeStreng>STATOIL ASA</BrSokeStreng>
+    #     <OrgForm>ALLE</OrgForm>
+    #     <Fylke Fylkesnr="0">ALLE</Fylke>
+    #     <Kommune Kommunenr="0">ALLE</Kommune>
+    #     <Slettet>N</Slettet>
+    #     <MedUnderenheter>true</MedUnderenheter>
+    #     <MaxTreffReturneres>100</MaxTreffReturneres>
+    #     <ReturnerIngenHvisMax>true</ReturnerIngenHvisMax>
+    #   </Sokeverdier>
+    #   <BrErfrTreffliste Antall="61">
+    #     <BrErfrTrefflisteElement>
+    #       <Orgnr>873152362</Orgnr>
+    #       <OrgNavn>STATOIL ASA AVD KONTOR BERGEN</OrgNavn>
+    #       <Sted>5254 SANDSLI</Sted>
+    #       <Score>100</Score>
+    #       <OrgForm>BEDR</OrgForm>
+    #     </BrErfrTrefflisteElement>
+    #
+    # ...
+    #
     #
     # Arguments
     #   query             -   Your search string / query goes here
@@ -108,10 +150,15 @@ module BrregGrunndata
       ResponseValidator.new(
         Response.new(savon_response)
       ).raise_error_or_return_response!
+    rescue ::Net::ReadTimeout
+      raise TimeoutError
     end
 
+    # rubocop:disable Metrics/MethodLength
     def build_savon_service
       options = {
+        open_timeout: configuration.open_timeout,
+        read_timeout: configuration.read_timeout,
         wsdl: configuration.wsdl
       }
 
@@ -123,6 +170,7 @@ module BrregGrunndata
 
       Savon.client options
     end
+    # rubocop:enable Metrics/MethodLength
 
     def credentials
       {
