@@ -18,8 +18,8 @@ module BrregGrunndata
     def initialize(
       userid:,
       password:,
-      open_timeout: 2,
-      read_timeout: 2,
+      open_timeout: 15,
+      read_timeout: 15,
       logger: nil,
       log_level: :info,
       wsdl: WSDL_PATH
