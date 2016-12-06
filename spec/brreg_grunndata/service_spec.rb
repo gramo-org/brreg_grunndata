@@ -22,6 +22,11 @@ module BrregGrunndata
                       message: fixture_hent_kontaktdata_hash(orgnr: '923609016')
     end
 
+    let(:filled_saerlige_opplysninger_response) do
+      instance_double Client::Response,
+                      message: fixture_hent_saerlige_opplysninger_hash(orgnr: '923609016')
+    end
+
     let(:client) { instance_double Client }
 
     subject { described_class.new client: client }
@@ -85,6 +90,40 @@ module BrregGrunndata
 
         it 'returns null when not found' do
           organization = subject.hent_kontaktdata orgnr: '123456789'
+          expect(organization).to be_nil
+        end
+      end
+    end
+
+    describe '#hent_saerlige_opplysninger' do
+      context 'found' do
+        before do
+          expect(client).to receive(:hent_saerlige_opplysninger)
+            .and_return filled_saerlige_opplysninger_response
+        end
+
+        it 'returns an organization with expected data' do
+          organization = subject.hent_saerlige_opplysninger orgnr: '992090936'
+
+          expect(organization).to be_a Types::Organization
+          expect(organization.orgnr).to eq 923_609_016
+
+          info = organization.additional_information[0]
+          expect(info).to be_a Types::AdditionalInformation
+
+          expect(info.registered_date).to eq Date.new(1988, 4, 28)
+          expect(info.status_code).to eq 'R-FR'
+          expect(info.description).to eq 'Registrert i Foretaksregisteret'
+        end
+      end
+
+      context 'not found' do
+        before do
+          expect(client).to receive(:hent_saerlige_opplysninger).and_return empty_response
+        end
+
+        it 'returns null when not found' do
+          organization = subject.hent_saerlige_opplysninger orgnr: '123456789'
           expect(organization).to be_nil
         end
       end

@@ -3,6 +3,7 @@
 require_relative 'organization'
 require_relative 'organizational_form'
 require_relative 'address'
+require_relative 'additional_information'
 
 module BrregGrunndata
   module Types
@@ -12,6 +13,7 @@ module BrregGrunndata
       # Creates an organization from given hash
       #
       # rubocop:disable Metrics/MethodLength
+      # rubocop:disable Metrics/AbcSize
       #
       # @return BrregGrunndata::Types::Organization
       def organization(h)
@@ -28,10 +30,13 @@ module BrregGrunndata
           web_page: h[:hjemmesideadresse],
 
           business_address: business_address(h[:forretnings_adresse]),
-          postal_address: postal_address(h[:post_adresse])
+          postal_address: postal_address(h[:post_adresse]),
+
+          additional_information: additional_information(h.dig(:saerlige_opplysninger, :status))
         )
       end
       # rubocop:enable Metrics/MethodLength
+      # rubocop:enable Metrics/AbcSize
 
       # Creates a address for given Hash
       #
@@ -57,6 +62,16 @@ module BrregGrunndata
           name: h[:orgform],
           description: h[:orgform_beskrivelse]
         )
+      end
+
+      def additional_information(lines)
+        Array(lines).map do |line|
+          AdditionalInformation.new(
+            status_code: line[:@statuskode],
+            description: line[:tekst_linje],
+            registered_date: line[:@registrerings_dato]
+          )
+        end
       end
 
       # As of writing, keys for postal and business address

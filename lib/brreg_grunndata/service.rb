@@ -52,5 +52,18 @@ module BrregGrunndata
     def hent_kontaktdata(orgnr:)
       Types::FromResponseFactory.organization client.hent_kontaktdata orgnr: orgnr
     end
+
+    # Get additional information about an organization
+    #
+    # Like when where the last time the reported taxes, are they registered in
+    # the VAT registry etc.
+    #
+    # Arguments
+    #   orgnr   - The orgnr you are searching for
+    #
+    # @return BrregGrunndata::Types::Organization
+    def hent_saerlige_opplysninger(orgnr:)
+      Types::FromResponseFactory.organization client.hent_saerlige_opplysninger orgnr: orgnr
+    end
   end
 end
