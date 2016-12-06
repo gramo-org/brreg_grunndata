@@ -62,7 +62,35 @@ module FixtureHelper
         :telefonnummer=>"51 99 00 00",
         :telefaksnummer=>"51 99 00 50",
         :hjemmesideadresse=>"www.statoil.com",
-        :@tjeneste=>"hentKontaktdata"}
+        :@tjeneste=>"hentKontaktdata"
+      }
+    else
+      raise "Don't have any data for orgnr #{orgnr}"
+    end
+  end
+
+  def fixture_hent_saerlige_opplysninger_hash(orgnr: '')
+    case orgnr
+    when '992090936'
+      {
+        :organisasjonsnummer=>"992090936",
+        :@tjeneste=>"hentSaerligeOpplysninger"
+      }
+    when '923609016'
+      {
+        :organisasjonsnummer=>"923609016",
+        :saerlige_opplysninger=> {
+          :status=> [
+            {:tekst_linje=>"Registrert i Foretaksregisteret", :@registrerings_dato=>"1988-04-28", :@statuskode=>"R-FR"},
+            {:tekst_linje=>"Registrert i Merverdiavgiftsregisteret", :@registrerings_dato=>"1995-03-12", :@statuskode=>"R-MV"},
+            {:tekst_linje=>["Frivillig registrering i Merverdiavgiftsregisteret:", "- Utleier av bygg eller anlegg"], :@registrerings_dato=>"2014-01-20", :@statuskode=>"FMVA"},
+            {:tekst_linje=>"Registrert i NAV Aa-registeret", :@statuskode=>"R-AA"},
+            {:tekst_linje=>"Inngår i konsern", :@statuskode=>"KMOR"},
+            {:tekst_linje=>"Sist innsendte årsregnskap 2015", :@registrerings_dato=>"2016-06-06", :@statuskode=>"ÅRSO"}
+          ]
+        },
+        :@tjeneste=>"hentSaerligeOpplysninger"
+      }
     else
       raise "Don't have any data for orgnr #{orgnr}"
     end

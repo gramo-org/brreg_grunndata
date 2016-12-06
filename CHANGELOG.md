@@ -1,5 +1,7 @@
 ## v.0.1.1 (to be released)
- 
+
+* Added `hent_saerlige_opplysninger` to the service layer.
+* Added client spec for `hent_saerlige_opplysninger`.
 
 ## v.0.1.0
 
