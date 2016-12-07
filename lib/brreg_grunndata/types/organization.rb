@@ -3,6 +3,7 @@
 require_relative 'base'
 require_relative 'address'
 require_relative 'organizational_form'
+require_relative 'additional_information'
 
 module BrregGrunndata
   module Types
@@ -20,6 +21,10 @@ module BrregGrunndata
 
       attribute :business_address,    Types::Address.optional
       attribute :postal_address,      Types::Address.optional
+
+      attribute :additional_information, Types::Strict::Array
+        .member(Types::AdditionalInformation)
+        .default([])
     end
   end
 end

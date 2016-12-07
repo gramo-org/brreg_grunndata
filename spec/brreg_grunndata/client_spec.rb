@@ -181,6 +181,41 @@ module BrregGrunndata
           include_examples 'common client failures'
         end
       end
+
+      describe '#hent_saerlige_opplysninger' do
+        let(:operation) { :hent_saerlige_opplysninger }
+        let(:message) { { orgnr: '923609016' } }
+
+        context 'success' do
+          before do
+            savon
+              .expects(:hent_saerlige_opplysninger)
+              .with(message: hash_including(message))
+              .returns(read_fixture('hent_saerlige_opplysninger_success'))
+          end
+
+          include_examples 'common client successes'
+
+          it 'contains expected header with main_status and sub_statuses' do
+            response = subject.hent_saerlige_opplysninger(message)
+
+            expect(response.header.main_status).to eq 0
+            expect(response.header.sub_statuses).to eq [
+              { code: 0, message: 'Data returnert' }
+            ]
+          end
+
+          it 'contains expected message' do
+            response = subject.hent_saerlige_opplysninger(message)
+            expect(response.message)
+              .to eq fixture_hent_saerlige_opplysninger_hash(orgnr: '923609016')
+          end
+        end
+
+        context 'failures' do
+          include_examples 'common client failures'
+        end
+      end
     end
   end
 end
