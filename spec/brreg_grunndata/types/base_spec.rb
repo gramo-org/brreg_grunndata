@@ -26,10 +26,6 @@ module BrregGrunndata
                   }
     end
 
-    describe '#original_response' do
-      it 'has an original response.  ..or not? Need to be figured out how this & merge works'
-    end
-
     describe '#merge' do
       it 'fails when it is asked to be merged with other type' do
         expect { subject.merge TestAddr.new }.to raise_error ArgumentError
