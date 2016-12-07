@@ -153,6 +153,27 @@ module BrregGrunndata
           expect(organization.telephone_number).to eq '51 99 00 00'
           expect(organization.telefax_number).to eq '51 99 00 50'
         end
+
+        context 'with postal address empty' do
+          let(:filled_basisdata_response) do
+            instance_double Client::Response,
+                            message: fixture_hent_basisdata_mini_hash(orgnr: '992090936')
+          end
+
+          let(:filled_kontaktdata_response) do
+            instance_double Client::Response,
+                            message: fixture_hent_kontaktdata_hash(orgnr: '992090936')
+          end
+
+          it 'returns an organization where postal address is nil' do
+            organization = subject.run_concurrently operations, orgnr: '992090936'
+
+            expect(organization).to be_a Types::Organization
+
+            expect(organization.business_address.street).to eq 'Bård Skolemesters vei 6'
+            expect(organization.postal_address).to be_nil
+          end
+        end
       end
 
       context 'not found' do
