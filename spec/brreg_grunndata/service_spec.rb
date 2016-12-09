@@ -73,7 +73,38 @@ module BrregGrunndata
             expect(organization.business_address.street_parts).to eq [
               '4. etasje', 'Kongens gate 11'
             ]
+
             expect(organization.business_address.street).to eq '4. etasje, Kongens gate 11'
+          end
+
+          it 'includes street in to_h' do
+            organization = subject.hent_basisdata_mini orgnr: '991025022'
+            org_as_hash = organization.to_h
+
+            expect(org_as_hash).to eq(
+              additional_information: [],
+              business_address: {
+                street_parts: ['4. etasje', 'Kongens gate 11'],
+                street: '4. etasje, Kongens gate 11',
+                postal_code: '0153',
+                postal_area: 'OSLO',
+                municipality_number: '0301',
+                municipality: 'OSLO',
+                country_code: 'NOR',
+                country: 'Norge'
+              },
+              email: nil,
+              mobile_number: nil,
+              name: 'SKALAR AS',
+              organizational_form: {
+                name: 'AS', description: 'Aksjeselskap'
+              },
+              orgnr: 991_025_022,
+              postal_address: nil,
+              telefax_number: nil,
+              telephone_number: nil,
+              web_page: nil
+            )
           end
         end
       end

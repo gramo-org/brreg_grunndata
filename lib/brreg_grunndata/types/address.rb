@@ -23,6 +23,12 @@ module BrregGrunndata
       def street(separator = ', ')
         street_parts.join separator
       end
+
+      def to_hash
+        super.tap do |hash|
+          hash[:street] = street
+        end
+      end
     end
   end
 end
