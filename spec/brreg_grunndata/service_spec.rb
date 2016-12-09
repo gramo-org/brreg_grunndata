@@ -33,22 +33,48 @@ module BrregGrunndata
 
     describe '#hent_basisdata_mini' do
       context 'found' do
-        before do
-          expect(client).to receive(:hent_basisdata_mini).and_return filled_basisdata_response
+        context 'statoil' do
+          before do
+            expect(client).to receive(:hent_basisdata_mini).and_return filled_basisdata_response
+          end
+
+          it 'returns an organization with expected data' do
+            organization = subject.hent_basisdata_mini orgnr: '992090936'
+
+            expect(organization).to be_a Types::Organization
+
+            expect(organization.orgnr).to eq 923_609_016
+            expect(organization.name).to eq 'STATOIL ASA'
+            expect(organization.business_address.street).to eq 'Forusbeen 50'
+            expect(organization.business_address.municipality).to eq 'STAVANGER'
+            expect(organization.postal_address.street).to eq 'Postboks 8500'
+            expect(organization.postal_address.municipality_number).to eq '1103'
+            expect(organization.organizational_form.name).to eq 'ASA'
+          end
         end
 
-        it 'returns an organization with expected data' do
-          organization = subject.hent_basisdata_mini orgnr: '992090936'
+        context 'Skalar AS' do
+          before do
+            expect(client).to receive(:hent_basisdata_mini)
+              .and_return(
+                instance_double(
+                  Client::Response, message: fixture_hent_basisdata_mini_hash(orgnr: '991025022')
+                )
+              )
+          end
 
-          expect(organization).to be_a Types::Organization
+          it 'returns an organization with expected data' do
+            organization = subject.hent_basisdata_mini orgnr: '991025022'
 
-          expect(organization.orgnr).to eq 923_609_016
-          expect(organization.name).to eq 'STATOIL ASA'
-          expect(organization.business_address.street).to eq 'Forusbeen 50'
-          expect(organization.business_address.municipality).to eq 'STAVANGER'
-          expect(organization.postal_address.street).to eq 'Postboks 8500'
-          expect(organization.postal_address.municipality_number).to eq '1103'
-          expect(organization.organizational_form.name).to eq 'ASA'
+            expect(organization).to be_a Types::Organization
+
+            expect(organization.orgnr).to eq 991_025_022
+            expect(organization.name).to eq 'SKALAR AS'
+            expect(organization.business_address.street_parts).to eq [
+              '4. etasje', 'Kongens gate 11'
+            ]
+            expect(organization.business_address.street).to eq '4. etasje, Kongens gate 11'
+          end
         end
       end
 

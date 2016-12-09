@@ -80,7 +80,7 @@ module BrregGrunndata
         return nil if h.nil?
 
         Address.new(
-          street: h[:adresse1],
+          street_parts: [h[:adresse1], h[:adresse2], h[:adresse3]].compact,
           postal_code: h[:postnr],
           postal_area: h[:poststed],
           municipality_number: h[:kommunenummer],

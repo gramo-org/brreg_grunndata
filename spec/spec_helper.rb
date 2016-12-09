@@ -42,6 +42,17 @@ module FixtureHelper
         :organisasjonsform=>{ :orgform=>'ASA', :orgform_beskrivelse=>'Allmennaksjeselskap'},
         :@tjeneste=>'hentBasisdataMini'
       }
+    when '991025022'
+      {
+        :organisasjonsnummer=>"991025022",
+        :navn=>{:navn1=>"SKALAR AS", :@registrerings_dato=>"2007-03-14"},
+        :forretnings_adresse=>{:adresse1=>"4. etasje", :adresse2=>"Kongens gate 11", :postnr=>"0153",
+          :poststed=>"OSLO", :kommunenummer=>"0301", :kommune=>"OSLO", :landkode=>"NOR", :land=>"Norge",
+          :@registrerings_dato=>"2015-08-13"},
+        :organisasjonsform=>{:orgform=>"AS", :orgform_beskrivelse=>"Aksjeselskap",
+          :@registrerings_dato=>"2007-03-14"},
+        :@tjeneste=>"hentBasisdataMini"
+      }
     else
       raise "Don't have any data for orgnr #{orgnr}"
     end
