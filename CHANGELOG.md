@@ -1,7 +1,14 @@
-## v.0.1.1 (to be released)
+## v.0.1.3 (to be released)
 
-* Added `hent_saerlige_opplysninger` to the service layer.
-* Added client spec for `hent_saerlige_opplysninger`.
+
+## v.0.1.2
+
+* FIXED: Returned address from service now includes all parts of the street.
+
+## v.0.1.1
+
+* ADDED: `hent_saerlige_opplysninger` to the service layer.
+* ADDED: client spec for `hent_saerlige_opplysninger`.
 
 ## v.0.1.0
 
