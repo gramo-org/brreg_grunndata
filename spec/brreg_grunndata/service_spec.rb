@@ -105,6 +105,8 @@ module BrregGrunndata
               telephone_number: nil,
               web_page: nil
             )
+
+            expect(org_as_hash[:business_address]).to eq organization.business_address.to_h
           end
         end
       end

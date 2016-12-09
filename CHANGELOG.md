@@ -1,4 +1,8 @@
-## v.0.1.4 (to be released)
+## v.0.1.5 (to be released)
+
+## v.0.1.4
+
+* FIXED: Returned address to_h includes street attribute.
 
 ## v.0.1.3
 

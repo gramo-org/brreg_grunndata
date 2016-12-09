@@ -29,6 +29,8 @@ module BrregGrunndata
           hash[:street] = street
         end
       end
+
+      alias to_h to_hash
     end
   end
 end
