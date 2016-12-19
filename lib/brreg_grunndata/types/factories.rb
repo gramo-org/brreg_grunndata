@@ -65,7 +65,9 @@ module BrregGrunndata
       end
 
       def additional_information(lines)
-        Array(lines).map do |line|
+        lines = [lines].compact.flatten
+
+        lines.map do |line|
           AdditionalInformation.new(
             status_code: line[:@statuskode],
             description: line[:tekst_linje],

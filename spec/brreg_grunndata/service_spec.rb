@@ -174,6 +174,28 @@ module BrregGrunndata
           expect(info.status_code).to eq 'R-FR'
           expect(info.description).to eq 'Registrert i Foretaksregisteret'
         end
+
+        it 'returns an organization when only one line of data is returned from API' do
+          expect(filled_saerlige_opplysninger_response)
+            .to receive(:message)
+            .and_return(
+              organisasjonsnummer: '912576108', saerlige_opplysninger: {
+                status: {
+                  tekst_linje: 'Registrert i Foretaksregisteret',
+                  :@registrerings_dato => '2013-10-14',
+                  :@statuskode => 'R-FR'
+                }
+              },
+              :@tjeneste => 'hentSaerligeOpplysninger'
+            )
+
+          organization = subject.hent_saerlige_opplysninger orgnr: '992090936'
+          info = organization.additional_information[0]
+
+          expect(info.registered_date).to eq Date.new(2013, 10, 14)
+          expect(info.status_code).to eq 'R-FR'
+          expect(info.description).to eq 'Registrert i Foretaksregisteret'
+        end
       end
 
       context 'not found' do
