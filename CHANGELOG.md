@@ -1,4 +1,7 @@
-## v.0.1.5 (to be released)
+## v.0.1.6 (to be released)
+
+## v.0.1.5
+* FIXED: Issue with service and hent_saerlige_opplysninger when client returned one line.
 
 ## v.0.1.4
 
