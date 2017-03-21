@@ -2,7 +2,7 @@
 
 Ruby wrapper for brreg / enhetsregisteret's [soap web service](https://www.brreg.no/produkter-og-tjenester/bestille/tilgang-til-enhetsregisteret-via-web-services/).
 
-[![Build Status](https://snap-ci.com/gramo-org/brreg_grunndata/branch/master/build_image)](https://snap-ci.com/gramo-org/brreg_grunndata/branch/master)
+[ ![Codeship Status for gramo-org/brreg_grunndata](https://app.codeship.com/projects/7ef81de0-f07c-0134-bc88-3e50d5e616b5/status?branch=master)](https://app.codeship.com/projects/209130)
 
 # Usage
 
