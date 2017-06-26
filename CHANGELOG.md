@@ -1,4 +1,7 @@
-## v.0.1.6 (to be released)
+## v.0.1.7 (to be released)
+
+## v.0.1.6
+* FIXED: Issue where organization name was not read completely.
 
 ## v.0.1.5
 * FIXED: Issue with service and hent_saerlige_opplysninger when client returned one line.
