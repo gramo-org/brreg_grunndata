@@ -17,11 +17,16 @@ module BrregGrunndata
       #
       # @return BrregGrunndata::Types::Organization
       def organization(h)
+        name = h.fetch :navn, {}
+        name = [
+          name[:navn1], name[:navn2], name[:navn3], name[:navn4], name[:navn5]
+        ].compact.join ' '
+
         Organization.new(
           orgnr: h.fetch(:organisasjonsnummer),
           organizational_form: organizational_form(h[:organisasjonsform]),
 
-          name: h.dig(:navn, :navn1),
+          name: name.length > 0 ? name : nil,
 
           telephone_number: h[:telefonnummer],
           telefax_number: h[:telefaksnummer],

@@ -21,7 +21,7 @@ module FixtureHelper
     when '992090936'
       {
         :organisasjonsnummer=>'992090936',
-        :navn=>{:navn1=>'PETER SKEIDE CONSULTING', :@registrerings_dato=>'2007-12-19'},
+        :navn=>{:navn1=>'PETER SKEIDE', :navn2=>'CONSULTING', :@registrerings_dato=>'2007-12-19'},
         :forretnings_adresse=>{:adresse1=>'Bård Skolemesters vei 6', :postnr=>'0590',
         :poststed=>'OSLO', :kommunenummer=>'0301', :kommune=>'OSLO', :landkode=>'NOR',
         :land=>'Norge', :@registrerings_dato=>'2008-04-01'},
@@ -45,7 +45,7 @@ module FixtureHelper
     when '991025022'
       {
         :organisasjonsnummer=>"991025022",
-        :navn=>{:navn1=>"SKALAR AS", :@registrerings_dato=>"2007-03-14"},
+        :navn=>{:navn1=>"SKALAR", :navn2=>"AS", :@registrerings_dato=>"2007-03-14"},
         :forretnings_adresse=>{:adresse1=>"4. etasje", :adresse2=>"Kongens gate 11", :postnr=>"0153",
           :poststed=>"OSLO", :kommunenummer=>"0301", :kommune=>"OSLO", :landkode=>"NOR", :land=>"Norge",
           :@registrerings_dato=>"2015-08-13"},
