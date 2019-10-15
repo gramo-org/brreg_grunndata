@@ -1,4 +1,8 @@
+## v.0.1.8 (to be released)
+
 ## v.0.1.7 (to be released)
+
+* CHORE: Updated URL to SOAP service. Old endpoint has EOL 15th of November 2019.
 
 ## v.0.1.6
 * FIXED: Issue where organization name was not read completely.
