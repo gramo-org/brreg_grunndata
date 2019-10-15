@@ -4,7 +4,7 @@ module BrregGrunndata
   # Contains configuration for the web service client
   class Configuration
     # WSDL is located at this URL
-    WSDL_URL = 'https://ws.brreg.no/grunndata/ErFr?WSDL'
+    WSDL_URL = 'https://grunndata.brreg.no/grunndata/ErFr.wsdl'
 
     # We have a saved WSDL at this location on disk
     WSDL_PATH = "#{__dir__}/wsdl/grunndata.xml"

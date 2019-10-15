@@ -1,6 +1,7 @@
-<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.10-b140319.1121 svn-revision#7b34660d6bc70e587e8ec81a17e4d76af68816a6. --><WL5G3N0:definitions xmlns="" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://no/brreg/saksys/grunndata/ws" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" name="ErFrServiceDefinitions" targetNamespace="http://no/brreg/saksys/grunndata/ws">
+<?xml version="1.0" encoding="UTF-8"?>
+<WL5G3N0:definitions xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://no/brreg/saksys/grunndata/ws" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ErFrServiceDefinitions" targetNamespace="http://no/brreg/saksys/grunndata/ws">
   <WL5G3N0:types>
-    <xs:schema xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://no/brreg/saksys/grunndata/ws" xmlns:s2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://no/brreg/saksys/grunndata/ws">
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://no/brreg/saksys/grunndata/ws">
       <xs:element name="hentRollerFdato">
         <xs:complexType>
           <xs:sequence>
@@ -569,7 +570,7 @@
   </WL5G3N0:binding>
   <WL5G3N0:service name="ErFrService">
     <WL5G3N0:port binding="WL5G3N1:ErFrServiceSoapBinding" name="ErFrSoapPort">
-      <WL5G3N2:address location="https://ws.brreg.no:443/grunndata/ErFr"/>
+      <WL5G3N2:address location="https://grunndata.brreg.no:443/grunndata/ErFr"/>
     </WL5G3N0:port>
   </WL5G3N0:service>
 </WL5G3N0:definitions>
