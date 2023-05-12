@@ -25,12 +25,12 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'savon', '>= 2.11.1', '< 2.13.0'
-  spec.add_dependency 'dry-struct', '~> 0.1.1'
-  spec.add_dependency 'dry-types', '~> 0.10.3'
+  spec.add_dependency 'dry-struct', '~> 1.0'
+  spec.add_dependency 'dry-types', '~> 1.2'
 
-  spec.add_development_dependency 'bundler', '~> 1.13'
+  spec.add_development_dependency 'bundler', '~> 2.3'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'webmock', '~> 3.8.0'
+  spec.add_development_dependency 'webmock', '~> 3.18.0'
   spec.add_development_dependency 'pry'
 end

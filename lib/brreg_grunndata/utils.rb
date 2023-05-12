@@ -40,7 +40,7 @@ module BrregGrunndata
           raise UnkownOperationError, "#{@service_or_client} does not respond to #{operation}"
         end
 
-        @service_or_client.public_send operation, @args
+        @service_or_client.public_send operation, **@args
       end
     end
 

@@ -3,7 +3,6 @@
 require_relative 'organization'
 require_relative 'organizational_form'
 require_relative 'address'
-require_relative 'additional_information'
 
 module BrregGrunndata
   module Types

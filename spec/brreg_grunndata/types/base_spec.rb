@@ -11,7 +11,7 @@ module BrregGrunndata
     end
 
     class TestOrg < described_class
-      attribute :orgnr,               Types::Coercible::Int
+      attribute :orgnr,               Types::Coercible::Integer
       attribute :name,                Types::String.optional
       attribute :business_address,    TestAddr.optional
       attribute :postal_address,      TestAddr.optional
