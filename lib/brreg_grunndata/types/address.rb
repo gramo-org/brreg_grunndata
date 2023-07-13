@@ -5,7 +5,7 @@ require_relative 'base'
 module BrregGrunndata
   module Types
     class Address < Base
-      attribute :street_parts,        Types::Array.member(Types::String).default([])
+      attribute :street_parts,        Types::Array.of(Types::String).default { [] }
       attribute :postal_code,         Types::String
       attribute :postal_area,         Types::String
       attribute :municipality_number, Types::String

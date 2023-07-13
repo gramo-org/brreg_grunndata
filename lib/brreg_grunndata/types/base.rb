@@ -10,13 +10,13 @@ module BrregGrunndata
     # Include Dry basic types
     #
     # Whenever you see something like Types::String it is a dry type
-    include Dry::Types.module
+    include Dry.Types()
 
     # Base class for all BrregGrunndata's types
     class Base < Dry::Struct
       # Allow missing keys in the input data.
       # Missing data will get default value or nil.
-      constructor_type :schema
+      transform_types { |t| t.omittable }
 
       # Merges two base objects together and returns a new instance
       #

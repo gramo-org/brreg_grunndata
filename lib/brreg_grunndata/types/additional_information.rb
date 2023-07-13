@@ -11,8 +11,8 @@ module BrregGrunndata
     # this information was registered.
     class AdditionalInformation < Base
       attribute :status_code,     Types::String
-      attribute :description,     Types::String
-      attribute :registered_date, Types::Form::Date
+      attribute :description,     Types::String | Types::Array.of(Types::String)
+      attribute :registered_date, Types::Params::Date.optional.default(nil)
     end
   end
 end

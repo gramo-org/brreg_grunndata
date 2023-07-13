@@ -10,7 +10,7 @@ WebMock.disable_net_connect!
 module FixtureHelper
   def read_fixture(name)
     path = "#{__dir__}/fixtures/#{name}.xml"
-    File.read path
+    File.read path, encoding: 'UTF-8'
   rescue Errno::ENOENT
     raise "No fixture file found at: #{path}"
   end

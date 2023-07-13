@@ -15,7 +15,7 @@ module BrregGrunndata
       after(:all)  { savon.unmock! }
 
       let(:credentials) { { userid: 'test', password: 'secret' } }
-      let(:config) { Configuration.new credentials }
+      let(:config) { Configuration.new **credentials }
 
       subject do
         described_class.new configuration: config
@@ -23,12 +23,12 @@ module BrregGrunndata
 
       shared_examples 'common client successes' do
         it 'is a success' do
-          expect(subject.public_send(operation, message))
+          expect(subject.public_send(operation, **message))
             .to be_a_success
         end
 
         it 'returns a response of expected type' do
-          expect(subject.public_send(operation, message))
+          expect(subject.public_send(operation, **message))
             .to be_a BrregGrunndata::Client::Response
         end
       end
@@ -40,7 +40,7 @@ module BrregGrunndata
             .with(message: hash_including(message))
             .returns(read_fixture('fail_no_substatus'))
 
-          expect { subject.public_send(operation, message) }
+          expect { subject.public_send(operation, **message) }
             .to raise_error Client::ResponseValidator::UnexpectedError
         end
 
@@ -50,7 +50,7 @@ module BrregGrunndata
             .with(message: hash_including(message))
             .returns(read_fixture('fail_authorization'))
 
-          expect { subject.public_send(operation, message) }
+          expect { subject.public_send(operation, **message) }
             .to raise_error Client::ResponseValidator::UnauthorizedError
         end
 
@@ -59,7 +59,7 @@ module BrregGrunndata
             .to receive_message_chain(:service, :call)
             .and_raise ::Net::ReadTimeout
 
-          expect { subject.public_send(operation, message) }
+          expect { subject.public_send(operation, **message) }
             .to raise_error Client::TimeoutError
         end
       end
@@ -125,7 +125,7 @@ module BrregGrunndata
           include_examples 'common client successes'
 
           it 'contains expected header with main_status and sub_statuses' do
-            response = subject.hent_basisdata_mini(message)
+            response = subject.hent_basisdata_mini(**message)
 
             expect(response.header.main_status).to eq 0
             expect(response.header.sub_statuses).to eq [
@@ -135,7 +135,7 @@ module BrregGrunndata
           end
 
           it 'contains expected message' do
-            response = subject.hent_basisdata_mini(message)
+            response = subject.hent_basisdata_mini(**message)
             expect(response.message).to eq fixture_hent_basisdata_mini_hash
           end
         end
@@ -160,7 +160,7 @@ module BrregGrunndata
           include_examples 'common client successes'
 
           it 'contains expected header with main_status and sub_statuses' do
-            response = subject.hent_kontaktdata(message)
+            response = subject.hent_kontaktdata(**message)
 
             expect(response.header.main_status).to eq 0
             expect(response.header.sub_statuses).to eq [
@@ -172,7 +172,7 @@ module BrregGrunndata
           end
 
           it 'contains expected message' do
-            response = subject.hent_kontaktdata(message)
+            response = subject.hent_kontaktdata(**message)
             expect(response.message).to eq fixture_hent_kontaktdata_hash
           end
         end
@@ -197,7 +197,7 @@ module BrregGrunndata
           include_examples 'common client successes'
 
           it 'contains expected header with main_status and sub_statuses' do
-            response = subject.hent_saerlige_opplysninger(message)
+            response = subject.hent_saerlige_opplysninger(**message)
 
             expect(response.header.main_status).to eq 0
             expect(response.header.sub_statuses).to eq [
@@ -206,7 +206,7 @@ module BrregGrunndata
           end
 
           it 'contains expected message' do
-            response = subject.hent_saerlige_opplysninger(message)
+            response = subject.hent_saerlige_opplysninger(**message)
             expect(response.message)
               .to eq fixture_hent_saerlige_opplysninger_hash(orgnr: '923609016')
           end
