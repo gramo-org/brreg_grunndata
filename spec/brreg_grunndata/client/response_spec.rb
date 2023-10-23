@@ -12,7 +12,8 @@ module BrregGrunndata
       let(:http) do
         double  'http',
                 body: raw_body,
-                error?: false
+                error?: false,
+                headers: Rack::Headers.new
       end
 
       let(:savon_response) { Savon::Response.new http, globals, locals }
