@@ -1,5 +1,0 @@
-brreg_grunndata:
-  build: 
-    image: gramoorg/brreg_grunndata
-    dockerfile_path: Dockerfile
-  cached: true

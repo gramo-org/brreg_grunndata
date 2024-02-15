@@ -1,3 +1,0 @@
-- name: tests
-  service: brreg_grunndata
-  command: bundle exec rspec
